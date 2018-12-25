@@ -15,11 +15,13 @@ import {
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
+import { TodoFormComponent } from './todo-form/todo-form.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        TodoListComponent
+        TodoListComponent,
+        TodoFormComponent
     ],
     imports: [
         BrowserModule,

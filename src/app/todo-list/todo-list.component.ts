@@ -26,7 +26,7 @@ export class TodoListComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('i am starting the appp');
+        console.log('i am starting the app.');
     }
 
 }
