@@ -1,11 +1,11 @@
 <div class="container">
 
   <form class="form" #todoForm="ngForm">
-    <mat-form-field style="width: 200px; padding-right: 1em" [color]="isValidTitle() ? 'primary' : 'warn'">
+    <mat-form-field style="width: 400px; padding-right: 1em" [color]="isValidTitle() ? 'primary' : 'warn'">
       <input matInput placeholder="What do you want to do ?" [(ngModel)]="title" name="title"/>
       <mat-error >Description must be greater than 8 characters</mat-error>
       <mat-hint *ngIf="!isValidTitle()">Must be greater than 8 characters</mat-hint>
     </mat-form-field>
-    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="primary" (click)="onClickSave()">Save</button>
   </form>
 </div>

@@ -1,11 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-
-export class Todo {
-    id: number;
-    title: string;
-    completed: boolean;
-
-}
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Todo} from '../shared/todo';
+import {TodoService} from '../shared/todo.service';
+import {Subscription} from 'rxjs';
+import {TodoDataSource} from '../shared/todo-data-source';
 
 @Component({
     selector: 'app-todo-list',
@@ -14,19 +11,18 @@ export class Todo {
 })
 export class TodoListComponent implements OnInit {
 
-    todos: Todo[] = [
-        {id: 1, title: 'First thing', completed: true},
-        {id: 2, title: 'Second thing', completed: false},
-        {id: 3, title: 'Third thing', completed: true}
-    ];
+    todoDataSource: TodoDataSource;
 
     displayedColumns: string[] = ['id', 'title', 'completed', 'actions'];
 
-    constructor() {
+    constructor(private todoService: TodoService) {
+        this.todoDataSource = new TodoDataSource(todoService);
     }
 
     ngOnInit() {
         console.log('i am starting the app.');
     }
+
+
 
 }
