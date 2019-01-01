@@ -15,7 +15,10 @@ import {
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
-import { TodoFormComponent } from './todo-form/todo-form.component';
+import {TodoFormComponent} from './todo-form/todo-form.component';
+import {HttpClientModule} from '@angular/common/http';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryTodoService} from './mock/in-memory-todo.service';
 
 @NgModule({
     declarations: [
@@ -28,6 +31,11 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
         BrowserAnimationsModule,
         AppRoutingModule,
         FormsModule,
+        HttpClientModule,
+        // In Memory API always after HttpClientModule
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryTodoService, { dataEncapsulation: false }
+        ),
         MatTableModule,
         MatCheckboxModule,
         MatButtonModule,
