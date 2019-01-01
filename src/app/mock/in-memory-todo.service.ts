@@ -19,4 +19,9 @@ export class InMemoryTodoService implements InMemoryDbService {
         ];
         return {todos};
     }
+
+    genId(todos: Todo[]): number {
+        return null;
+      // return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
+    }
 }
